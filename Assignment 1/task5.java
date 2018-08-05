@@ -16,7 +16,7 @@ public class Main {
         stockArray = new Double[stockCount];
         //Check array.length
         //System.out.println("You chose " + stockArray.length + " stocks"); 
-        input.close();         
+                
         
         //Call initialize method on the array, this will initialize each element of the array to a user specified value (Double type).
         initializeArray(stockArray);
@@ -28,9 +28,15 @@ public class Main {
         	System.out.printf("%.2f\n", e);
         }
         */
+
+        //Add spacer
+        System.out.println();
         
         //Calculate values
-        avgMinBetweenElement(stockArray);        
+        avgMinBetweenElement(stockArray); 
+        
+        //Close input this has to be used at the end because some methods are dependant on it
+        input.close(); 
     }    
 	//Create a loop method to initialize array elements
 	public static void initializeArray(Double[] arr)
