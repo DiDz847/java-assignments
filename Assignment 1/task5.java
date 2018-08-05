@@ -35,7 +35,7 @@ public class Main {
         //Calculate values
         avgMinBetweenElement(stockArray); 
         
-        //Close input this has to be used at the end because some methods are dependant on it
+        //Close input
         input.close(); 
     }    
 	//Create a loop method to initialize array elements
@@ -58,6 +58,7 @@ public class Main {
 	//Create a method for calculating and iterating the array
 	public static void avgMinBetweenElement(Double[] arr) 
 	{
+        //Declare variables, this also sets the default values for calculation comparison.
 		Double averageElement = 0.00;
 	    Double minimumElement = arr[0];
         int betweenCount = 0;
