@@ -1,4 +1,3 @@
-//Stevie Berryman
 package my_package;
 //I chose not to import java.lang.System.out because i am trying to get in the habit of using the correct syntax
 import java.util.*;
