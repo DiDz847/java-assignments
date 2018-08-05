@@ -1,3 +1,4 @@
+//Stevie Berryman
 package my_package;
 //I chose not to import java.lang.System.out because i am trying to get in the habit of using the correct syntax
 import java.util.*;
@@ -14,7 +15,8 @@ public class Main {
         stockCount = input.nextInt();
         stockArray = new Double[stockCount];
         //Check array.length
-        //System.out.println("You chose " + stockArray.length + " stocks");          
+        //System.out.println("You chose " + stockArray.length + " stocks"); 
+        input.close();         
         
         //Call initialize method on the array, this will initialize each element of the array to a user specified value (Double type).
         initializeArray(stockArray);
@@ -27,12 +29,8 @@ public class Main {
         }
         */
         
-        /*
-         * Average cost (AC), also known as average total cost (ATC), is the average cost per unit of output. 
-         * To find it, divide the total cost (TC) by the quantity the firm is producing (Q)
-         */
-        
-        input.close();
+        //Calculate values
+        avgMinBetweenElement(stockArray);        
     }    
 	//Create a loop method to initialize array elements
 	public static void initializeArray(Double[] arr)
@@ -47,8 +45,44 @@ public class Main {
 			 * this did now effect the prompt message(as in number of prompts presented were still user selected amount)			
 			 */	 
 			System.out.printf("Enter price for stock #%d: ", i + 1);
-			arr[i] = input.nextDouble();			
+			arr[i] = input.nextDouble();
 		}
 		input.close();
 	}
+	//Create a method for calculating and iterating the array
+	public static void avgMinBetweenElement(Double[] arr) 
+	{
+		Double averageElement = 0.00;
+	    Double minimumElement = arr[0];
+        int betweenCount = 0;
+        
+        //Create the loop to calculate values
+        //i used 3 for loops because i was getting errors trying to cram all 3 calculations into 1.
+        //Find sum of each element for the average value
+        for(Double i : arr)
+        {
+        	averageElement = averageElement + i;
+        }
+        
+        //Find minimum and between values
+        for(int e = 0; e < arr.length; e++)
+        {
+        	if(arr[e] < minimumElement)
+        	{
+        		minimumElement = arr[e];
+        	}
+        }
+        //Find number of values between 1.5 and 30
+        for(int j = 0; j < arr.length; j++)
+        {
+        	if(arr[j] >= 1.5 && arr[j] <= 35)
+        	{
+        		betweenCount++;
+        	}
+        }
+        //Print results to screen
+        System.out.printf("Average price: %.2f out of %d stocks\n", (averageElement / arr.length), arr.length);
+        System.out.printf("Minimum price: %.2f\n", minimumElement);
+        System.out.printf("Number of stocks priced between 1.5-35: %d\n", betweenCount);
+    }
 }
